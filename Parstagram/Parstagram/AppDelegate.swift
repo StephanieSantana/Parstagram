@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             )
         // Override point for customization after application launch.
+        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            
+            window?.rootViewController = feedNavigationController
+        }
+        
         return true
     }
     
