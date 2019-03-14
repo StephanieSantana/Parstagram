@@ -33,6 +33,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         delegate.window?.rootViewController = loginViewController
     }
     
+    override var inputAccessoryView: UIView? {
+        return commentBar
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return showsCommentBar
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,15 +67,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         showsCommentBar = false
         becomeFirstResponder()
     }
-    
-    override var inputAccessoryView: UIView? {
-        return commentBar
-    }
-    
-    override var canBecomeFirstResponder: Bool {
-        return showsCommentBar
-    }
-    
     
     // Implement the delay method
     func run(after wait: TimeInterval, closure: @escaping () -> Void) {
